@@ -163,7 +163,7 @@ $(document).ready(function () {
   $('#subscribe #submit').on('click', function (e) {
     e.preventDefault();
     $.ajax({
-      url: "http://www.mocky.io/v2/596bbb280f0000fc0a1670d5",
+      url: "https://www.mocky.io/v2/596bbb280f0000fc0a1670d5",
       cache: false
     })
       .done(function (html) {
