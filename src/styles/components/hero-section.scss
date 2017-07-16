@@ -9,6 +9,10 @@
   margin-bottom: 85px;
   border-radius: 0 0 20px 20px;
 
+  @media #{$M-xs} {
+    margin-bottom: 15px;
+  }
+
   @media #{$M-sm} {
     padding-top: 90px;
     height: initial;

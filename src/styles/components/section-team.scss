@@ -1,6 +1,11 @@
 .section-team {
   background: url('./../assets/images/bg-shape-3.png') center -700px no-repeat;
 
+  @media #{$M-sm} {
+    background-position: center top;
+    background-size: 120% auto;
+  }
+
   h2 {
     margin-bottom: 45px;
   }

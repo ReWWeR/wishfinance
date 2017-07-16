@@ -7,8 +7,8 @@ $(document).ready(function () {
   });
 
   /*$(window).on('load', function () {
-    AOS.refresh();
-  });*/
+   AOS.refresh();
+   });*/
 
   var $hamburgerMenuBtn = $('.hamburger-menu');
 
@@ -23,6 +23,49 @@ $(document).ready(function () {
 
 
   var heightToShowMenu = null;
+  var lastId,
+    topMenu = $("#mainNav"),
+    topMenuHeight = topMenu.closest('.main-header').outerHeight(),
+    // All list items
+    menuItems = topMenu.find("a"),
+    // Anchors corresponding to menu items
+    scrollItems = menuItems.map(function () {
+      var item = $($(this).attr("href"));
+      if (item.length) {
+        return item;
+      }
+    });
+
+
+  $('a', topMenu).on('click', function(){
+    if ($('body').hasClass('show-mobile-menu')) {
+      $('body').addClass('animating').removeClass('show-mobile-menu');
+    }
+  })
+
+
+// Bind to scroll
+  $(window).scroll(function () {
+    // Get container scroll position
+    var fromTop = $(this).scrollTop() + topMenuHeight;
+
+    // Get id of current scroll item
+    var cur = scrollItems.map(function () {
+      if ($(this).offset().top < fromTop)
+        return this;
+    });
+    // Get the id of the current element
+    cur = cur[cur.length - 1];
+    var id = cur && cur.length ? cur[0].id : "";
+
+    if (lastId !== id) {
+      lastId = id;
+      // Set/remove active class
+      menuItems
+        .parent().removeClass("active")
+        .end().filter("a[href=\\#" + id + "]").parent().addClass("active");
+    }
+  });
 
   function checkHeight() {
     var $screenToCheck = document.querySelector('.hero-section');
@@ -37,9 +80,9 @@ $(document).ready(function () {
   });
 
   $(window).on('scroll', function () {
-    if (document.body.scrollTop >= heightToShowMenu && !$('body').hasClass('fix-menu')) {
+    if (document.body.scrollTop >= heightToShowMenu && !$('body').hasClass('fix-menu') && $('#press').offset().top + ($('#press').outerHeight() - $(window).height() + topMenuHeight) > document.body.scrollTop) {
       $('body').addClass('fix-menu');
-    } else if ($('body').hasClass('fix-menu') && document.body.scrollTop < heightToShowMenu) {
+    } else if ($('body').hasClass('fix-menu') && document.body.scrollTop < heightToShowMenu || $('#press').offset().top + ($('#press').outerHeight() - $(window).height() + topMenuHeight) < document.body.scrollTop) {
       $('body').removeClass('fix-menu');
     }
   })
@@ -91,7 +134,7 @@ $(document).ready(function () {
           // Only prevent default if animation is actually gonna happen
           event.preventDefault();
           $('html, body').animate({
-            scrollTop: target.offset().top
+            scrollTop: target.offset().top - topMenuHeight + 1
           }, 1000, function () {
             // Callback after animation
             // Must change focus!
@@ -116,6 +159,20 @@ $(document).ready(function () {
   $('#ytplayer-modal').on('hidden.bs.modal', function () {
     player.pauseVideo();
   });
+
+  $('#subscribe #submit').on('click', function (e) {
+    e.preventDefault();
+    $.ajax({
+      url: "http://www.mocky.io/v2/596bbb280f0000fc0a1670d5",
+      cache: false
+    })
+      .done(function (html) {
+        $("#results").addClass('success').html(html);
+      })
+      .fail(function (html) {
+        $("#results").addClass('error').html(html);
+      })
+  })
 });
 
 // Load the IFrame Player API code asynchronously.

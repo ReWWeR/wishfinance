@@ -51,14 +51,18 @@
     background: none;
     border: none;
     position: absolute;
-    right: 10px;
-    top: 10px;
+    right: 20px;
+    top: 20px;
     z-index: 99999;
+
+    &:focus {
+      outline: none;
+    }
 
     svg {
       fill: #fff;
-      width: 16px;
-      height: 16px;
+      width: 36px;
+      height: 36px;
     }
   }
 }
@@ -86,7 +90,7 @@
   background-color: #000;
   // Fade for backdrop
   &.fade { opacity: 0; }
-  &.in { opacity: .2; }
+  &.in { opacity: .75; }
 }
 
 // Modal header
@@ -146,9 +150,16 @@
 }
 
 .modal-scroll {
+
+  @media #{$M-sm} {
+    .modal-dialog {
+      width: 100vw;
+      margin: 0;
+    }
+  }
   .overflow-scroll {
     overflow: scroll;
-    max-height: 97vh;
+    max-height: 100vh;
   }
 }
 

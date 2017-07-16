@@ -36,8 +36,15 @@
 
   &:hover {
     box-shadow: 0 12px 34px 0 rgba(#FF1200, .5);
+
+    @media #{$M-sm} {
+      box-shadow: none;
+    }
     &:before {
       opacity: 1;
+      @media #{$M-sm} {
+       opacity: 0;
+      }
     }
   }
 
@@ -45,6 +52,10 @@
     &:before {
     background: $red-gradient;
       opacity: 1;
+
+      @media #{$M-sm} {
+        display: none;
+      }
     }
   }
 
@@ -52,6 +63,10 @@
     box-shadow: 0 12px 34px 0 rgba(#FF1200, 0), 0 0 0 3px $main-bg;
     &:hover {
       box-shadow: 0 12px 34px 0 rgba(#FF1200, .5), 0 0 0 3px $main-bg;
+
+      @media #{$M-sm} {
+        box-shadow: 0 12px 34px 0 rgba(#FF1200, 0), 0 0 0 3px $main-bg;
+      }
     }
   }
 
@@ -59,6 +74,10 @@
     box-shadow: 0 12px 34px 0 rgba(#FF1200, 0), 0 0 0 5px $main-bg;
     &:hover {
       box-shadow: 0 12px 34px 0 rgba(#FF1200, .5), 0 0 0 5px $main-bg;
+
+      @media #{$M-sm} {
+        box-shadow: 0 12px 34px 0 rgba(#FF1200, 0), 0 0 0 5px $main-bg;
+      }
     }
   }
 }
@@ -67,6 +86,10 @@
   background: rgba(#d8d8d8, .2);
   &:hover {
     background-color: transparent;
+
+    @media #{$M-sm} {
+      background: rgba(#d8d8d8, .2);
+    }
   }
 }
 
@@ -82,5 +105,9 @@
 
   &:hover {
     color: #fff;
+
+    @media #{$M-sm} {
+      color: #000;
+    }
   }
 }

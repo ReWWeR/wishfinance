@@ -105,6 +105,10 @@
   .hamburger-menu {
     display: none;
 
+    &:focus {
+      outline: none;
+    }
+
     .ic-cross {
       display: none;
       g {
@@ -178,6 +182,12 @@
               }
 
               &:hover, &:focus, &:active, &.active {
+                color: #000;
+              }
+            }
+
+            &.active {
+              a {
                 color: #000;
               }
             }

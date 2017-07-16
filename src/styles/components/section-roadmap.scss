@@ -27,6 +27,14 @@
   .roadmap-item {
     position: relative;
 
+    &:first-child {
+      padding-left: 15px;
+    }
+
+    &:last-child {
+      padding-right: 15px;
+    }
+
     &:before {
       content: '';
       display: block;

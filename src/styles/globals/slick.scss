@@ -106,7 +106,7 @@
   flex-wrap: wrap;
   padding-right: 100px;
 
-  @media #{$M-xs} {
+  @media #{$M-sm} {
     padding-right: 0;
   }
 
@@ -123,7 +123,11 @@
     position: relative;
     cursor: pointer;
 
-    @media #{$M-xs} {
+    &:focus {
+      outline: none;
+    }
+
+    @media #{$M-sm} {
       display: none!important;
     }
 
@@ -148,16 +152,32 @@
       &:before {
         opacity: 1;
       }
+
+      @media #{$M-sm} {
+        box-shadow: none;
+
+        &:before {
+          opacity: 0;
+        }
+      }
     }
 
     &:focus, &:active {
       border: 1px solid $red-main;
+
+      @media #{$M-sm} {
+        border: 1px solid #DADADA;
+      }
     }
 
     &.slick-prev {
       transform: rotate(180deg);
       &:hover {
         box-shadow: 0 -6px 10px 0 rgba($red-main, .5);
+
+        @media #{$M-sm} {
+          box-shadow: none;
+        }
       }
     }
   }
@@ -165,8 +185,11 @@
   .slick-slide {
     padding: 0 13vw;
     text-align: center;
+    &:focus {
+      outline: none;
+    }
 
-    @media #{$M-xs} {
+    @media #{$M-sm} {
       padding: 0;
     }
 
@@ -214,9 +237,16 @@
         padding: 0;
         margin: 0 auto;
         border: 2px solid transparent;
+        &:focus {
+          outline: none;
+        }
 
         &:hover {
           background: #9ea2ac;
+
+          @media #{$M-sm} {
+            background: rgba(#9EA2AC, .5);
+          }
         }
       }
 
