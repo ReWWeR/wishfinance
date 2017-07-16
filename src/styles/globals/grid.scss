@@ -1,0 +1,33 @@
+.cols {
+  display: flex;
+  margin: 0 -15px;
+
+  .col {
+    padding: 0 15px;
+  }
+}
+
+.two-columns {
+  .cols {
+    @media #{$M-xs} {
+      flex-wrap: wrap;
+    }
+    .col {
+      flex-basis: 50%;
+
+      @media #{$M-xs} {
+        flex-basis: 100%;
+      }
+    }
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.hidden-xs {
+  @media #{$M-xs} {
+    display: none;
+  }
+}

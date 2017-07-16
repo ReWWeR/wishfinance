@@ -1,0 +1,86 @@
+.btn {
+  font-weight: bold;
+  font-size: 16px;
+  padding: 0.75em 2.1875em;
+  text-decoration: none;
+  border-radius: 2em;
+  text-transform: uppercase;
+  transition: background ease .4s, color ease .4s, box-shadow ease .4s;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+
+  &.btn-lg {
+    padding: .9375em 3.125em;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity ease .4s;
+    background: $red-gradient-2;
+    z-index: -1;
+    border-radius: 2em;
+  }
+
+  @media #{$M-xs} {
+    font-size: 12px;
+  }
+
+  &:hover {
+    box-shadow: 0 12px 34px 0 rgba(#FF1200, .5);
+    &:before {
+      opacity: 1;
+    }
+  }
+
+  &:focus, &:active {
+    &:before {
+    background: $red-gradient;
+      opacity: 1;
+    }
+  }
+
+  &.btn-white-border {
+    box-shadow: 0 12px 34px 0 rgba(#FF1200, 0), 0 0 0 3px $main-bg;
+    &:hover {
+      box-shadow: 0 12px 34px 0 rgba(#FF1200, .5), 0 0 0 3px $main-bg;
+    }
+  }
+
+  &.btn-white-border-big {
+    box-shadow: 0 12px 34px 0 rgba(#FF1200, 0), 0 0 0 5px $main-bg;
+    &:hover {
+      box-shadow: 0 12px 34px 0 rgba(#FF1200, .5), 0 0 0 5px $main-bg;
+    }
+  }
+}
+
+.btn-default {
+  background: rgba(#d8d8d8, .2);
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.btn-red {
+  background: $red-gradient-2;
+}
+
+.btn-grey {
+  background: #D8D8D8;
+  color: #000;
+  border: none;
+  font-size: 12px;
+
+  &:hover {
+    color: #fff;
+  }
+}

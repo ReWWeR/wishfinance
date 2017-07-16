@@ -1,0 +1,28 @@
+@import 'globals/variables';
+
+@import "reset";
+@import "fonts";
+@import "base";
+@import "aos";
+
+@import "globals/buttons";
+@import "globals/counter-list";
+@import "globals/grid";
+@import "globals/component-animation";
+@import "globals/modals";
+@import "globals/popover";
+@import "globals/slick";
+
+@import "components/main-header";
+@import "components/hero-section";
+@import "components/section-features";
+@import "components/section-best-of-both-worlds";
+@import "components/section-about";
+@import "components/section-crypto-audit";
+@import "components/section-crypto-sub";
+@import "components/section-roadmap";
+@import "components/section-ico-details";
+@import "components/section-team";
+@import "components/section-partners";
+@import "components/section-press";
+@import "components/section-subscribe";

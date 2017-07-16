@@ -1,0 +1,70 @@
+.counter-list {
+  counter-reset: features;
+
+  .count-1 {
+    &:before {
+      content: '01.';
+    }
+  }
+
+  .count-2 {
+    &:before {
+      content: '02.';
+    }
+  }
+
+  .count-3 {
+    &:before {
+      content: '03.';
+    }
+  }
+
+  .count-4 {
+    &:before {
+      content: '04.';
+    }
+  }
+
+  .count-5 {
+    &:before {
+      content: '05.';
+    }
+  }
+
+  .col {
+    display: flex;
+    margin-bottom: 3.75em;
+
+    @media #{$M-xs} {
+      margin-bottom: 1.5em;
+
+      &:before {
+        content: "0" counter(features) ".";
+        counter-increment: features;
+      }
+    }
+
+    &:before {
+      font-size: 16px;
+      font-weight: bold;
+      border: 2px solid rgba(#75787E, .2);
+      border-radius: 50%;
+      display: flex;
+      align-self: flex-start;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 46px;
+      height: 46px;
+      margin-right: 1.25em;
+      margin-top: -.875em;
+    }
+
+    &.no-counter {
+      &:before {
+        content: '';
+        display: none;
+      }
+    }
+  }
+}

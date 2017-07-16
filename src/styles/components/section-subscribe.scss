@@ -1,0 +1,232 @@
+.section-subscribe {
+  background: #171717;
+  border-radius: 20px 20px 0 0;
+  color: #fff;
+  overflow: hidden;
+
+  .hidden-title {
+    color: rgba(0, 0, 0, .3);
+  }
+
+  header {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 60px;
+
+    @media #{$M-sm} {
+      display: none;
+    }
+
+    .logo {
+      font-size: 22px;
+
+      @media #{$M-sm} {
+        font-weight: bold;
+        color: #000;
+      }
+    }
+
+    .navigation {
+      margin-left: auto;
+    }
+    ul {
+      display: flex;
+
+      @media #{$M-sm} {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      li {
+        &:not(:last-child) {
+          margin-right: 2.95vw;
+
+          @media #{$M-sm} {
+            margin-right: 0;
+          }
+        }
+        a {
+          color: #fff;
+          text-transform: uppercase;
+          font-size: 12px;
+          text-decoration: none;
+          text-align: center;
+
+          &:hover {
+            text-decoration: underline;
+          }
+
+          @media #{$M-sm} {
+            font-size: 4vh;
+            line-height: 1.5;
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .subscribe-title {
+    display: flex;
+    align-items: center;
+    margin: 100px 0 120px;
+
+    @media #{$M-xs} {
+      margin: 20px 0 25px;
+      flex-wrap: wrap;
+    }
+
+    h2 {
+      flex-basis: 60%;
+      @media #{$M-xs} {
+        flex-basis: 100%;
+      }
+    }
+
+    p {
+      color: $grey;
+      margin-left: 10vw;
+
+      @media #{$M-xs} {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .input-wrap {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 10px;
+    margin-bottom: 110px;
+
+    @media #{$M-xs} {
+      margin-bottom: 20px;
+    }
+
+    &:before {
+      content: '';
+      background: url('./../assets/svg/email.svg');
+      width: 17px;
+      height: 14px;
+      display: block;
+      margin-right: 20px;
+    }
+
+    input[type=email] {
+      flex-grow: 1;
+      margin-right: 20px;
+      background: none;
+      border: none;
+      font-size: 16px;
+      color: #fff;
+
+      &::placeholder {
+        color: #808389;
+      }
+    }
+
+    button {
+      @media #{$M-xs} {
+        padding: 7px 10px;
+      }
+    }
+  }
+
+  .copyright {
+    display: flex;
+    color: rgba($grey, .5);
+
+    @media #{$M-xs} {
+      flex-wrap: wrap;
+
+      span {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+      }
+    }
+
+    span:first-child {
+      margin-right: auto;
+    }
+
+    .social-links {
+      display: flex;
+      margin-left: auto;
+
+      @media #{$M-xs} {
+        margin-right: auto;
+      }
+
+      li {
+        a {
+          display: flex;
+          align-items: center;
+
+          svg {
+            width: 20px;
+            height: 16px;
+            transition: fill .2s ease;
+            fill: $grey;
+          }
+
+          &:hover {
+            svg {
+              fill: #fff;
+            }
+          }
+        }
+
+        & + li {
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+
+  .back-to-top {
+    color: $grey;
+    font-weight: bold;
+    font-size: 12px;
+    display: inline-block;
+    text-transform: uppercase;
+    transform: rotate(-90deg);
+    text-decoration: none;
+    position: relative;
+    transform-origin: left;
+    margin-left: 60px;
+    z-index: 2;
+
+    @media #{$M-sm} {
+      transform: none;
+      margin: 50px auto 0;
+      display: block;
+      text-align: center;
+    }
+
+    &:before {
+      content: '';
+      width: 11px;
+      height: 6px;
+      background: url('./../assets/svg/arrow-top.svg') no-repeat center center;
+      display: block;
+      position: absolute;
+      right: -30px;
+      transform: rotate(90deg);
+      top: 3px;
+
+      @media #{$M-sm} {
+        right: 50%;
+        transform: translateX(50%);
+        top: -20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+.section-crypto-audit {
+  background: $green;
+  color: #fff;
+  box-shadow: 0 2px 30px 0 rgba(#000, .2);
+
+  .hidden-title {
+    top: 0;
+    left: 0;
+    font-size: 24vw;
+    transform: none;
+    padding-top: .125em;
+  }
+
+  h2 {
+    padding-bottom: .625em;
+
+  }
+
+  .description {
+    padding-bottom: 6.25em;
+
+    @media #{$M-xs} {
+      padding-bottom: 3em;
+    }
+  }
+
+  .counter-list .col:before {
+    border-color: #fff;
+    margin-top: -.375em;
+  }
+
+  .counter-list {
+    .content {
+      h3 {
+        font-size: 40px;
+        padding-bottom: 1.125em;
+
+        @media #{$M-xs} {
+          font-size: 23px;
+          padding-bottom: .5em;
+        }
+      }
+    }
+  }
+}
