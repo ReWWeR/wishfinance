@@ -217,7 +217,26 @@ $(document).ready(function () {
     clickBar: 1
   });
 
-  $('[data-toggle="popover"]').popover();
+  $('[data-toggle="popover"]').popover({
+      template: '<div class="popover" role="tooltip"><a role="button" class="close-popover"></a><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+    }
+  )
+    .on('shown.bs.popover', function(){
+      var self = this;
+
+      var popoverHeight = $('.popover').outerHeight();
+
+      $('html, body').animate({
+        scrollTop: $(this).offset().top - topMenuHeight - popoverHeight - 30
+      }, 1000);
+
+    $('.close-popover')
+      .click(function(){
+      $(self).popover('hide');
+    });
+  })
+
+
 
   $('.slick-slider').slick({
     dots: true
@@ -272,7 +291,7 @@ $(document).ready(function () {
   $('#subscribe #submit').on('click', function (e) {
     e.preventDefault();
     $.ajax({
-      url: "http://www.mocky.io/v2/596bbb280f0000fc0a1670d5",
+      url: "https://www.mocky.io/v2/596bbb280f0000fc0a1670d5",
       cache: false
     })
       .done(function (html) {

@@ -108,7 +108,26 @@ $(document).ready(function () {
     clickBar: 1
   });
 
-  $('[data-toggle="popover"]').popover();
+  $('[data-toggle="popover"]').popover({
+      template: '<div class="popover" role="tooltip"><a role="button" class="close-popover"></a><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+    }
+  )
+    .on('shown.bs.popover', function(){
+      var self = this;
+
+      var popoverHeight = $('.popover').outerHeight();
+
+      $('html, body').animate({
+        scrollTop: $(this).offset().top - topMenuHeight - popoverHeight - 30
+      }, 1000);
+
+    $('.close-popover')
+      .click(function(){
+      $(self).popover('hide');
+    });
+  })
+
+
 
   $('.slick-slider').slick({
     dots: true

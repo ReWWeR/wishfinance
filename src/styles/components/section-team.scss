@@ -39,6 +39,8 @@
 
       a[data-toggle='popover'] {
         display: block;
+        cursor: pointer;
+        outline: none;
       }
 
       .user-img {
